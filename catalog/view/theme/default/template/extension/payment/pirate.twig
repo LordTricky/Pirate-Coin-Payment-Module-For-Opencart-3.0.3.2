@@ -1,0 +1,34 @@
+<center>{% if address %}
+<h2>{{ text_instruction }}</h2>
+         <p><b>{{ text_description }}</b></p>
+      {% if qr %}
+      <img src="{{ qr }}" alt="{{ address }}" title="{{ address }}"><br>
+      <p>{{ address }}</p>
+      <input type="button" value="{{ button_confirm }}" id="button-confirm" class="btn btn-primary" data-loading-text="{{ text_loading }}" />
+      {% endif %}
+</center>
+  <script type="text/javascript"><!--
+    $('#button-confirm').on('click', function() {
+      $.ajax({
+        url: 'index.php?route=extension/payment/pirate/confirm',
+		dataType: 'json',
+
+        beforeSend: function() {
+          $('#button-confirm').button('loading');
+        },
+        complete: function() {
+          $('#button-confirm').button('reset');
+        },
+
+		success: function(json) {
+			if (json['redirect']) {
+				location = json['redirect'];	
+			}
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});
+});
+//--></script>
+    {% endif %}
