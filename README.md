@@ -40,15 +40,10 @@ Click the blue box (next to the now red 1) to edit the module, here you will nee
 
 <strong>Step 8.</strong>
 
-Click the Blue box at the top right of the page to save your settings. .
+Click the Blue box at the top right of the page to save your settings. If you are pricing your stock in fixxed Pirate Coin prices you are now finished, the module is fully installed, ready to go and can now be tested with test orders.
 
 <strong>Step 9.</strong>
 
-Here you now need to edit submit.php at the bottom of the file simply add your database credentials.
-
-<strong>Step 10.</strong>
-
-If you are pricing your stock in fixxed Pirate Coin prices you are now finished, the module is fully installed, ready to go and can now be tested with test orders.
 If you are pricing your items in fiat currency and accepting payment in Pirate coin you will need to edit the matching cronjob file (add your database credentials) and add that file to your crontab to run as often as you would like the prices updated.
 
 
