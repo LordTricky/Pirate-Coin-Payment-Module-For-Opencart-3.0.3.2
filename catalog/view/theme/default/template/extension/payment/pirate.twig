@@ -4,6 +4,7 @@
       {% if qr %}
       <img src="{{ qr }}" alt="{{ address }}" title="{{ address }}"><br>
       <p>{{ address }}</p>
+      <center><iframe src="submit.php" style="border:none;" height="165" width="600"></iframe></center>
       <input type="button" value="{{ button_confirm }}" id="button-confirm" class="btn btn-primary" data-loading-text="{{ text_loading }}" />
       {% endif %}
 </center>
