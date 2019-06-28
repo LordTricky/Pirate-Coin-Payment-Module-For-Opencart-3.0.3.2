@@ -67,6 +67,8 @@ class ControllerExtensionPaymentPirate extends Controller {
 		$json = array();
 
 $tot = $this->currency->format($this->cart->getTotal(), $this->config->get('payment_pirate_currency'));
+$querydb = $this->db->query("SELECT `payment_custom_field` FROM `oc_order` ORDER BY `order_id` DESC LIMIT 1");
+$txid= $querydb->row['payment_custom_field'];
 
         if ($this->session->data['payment_method']['code'] == 'pirate' && isset($this->session->data['payment_pirate'])) {
 
@@ -74,10 +76,9 @@ $tot = $this->currency->format($this->cart->getTotal(), $this->config->get('paym
                 $this->session->data['order_id'],
                 $this->config->get('payment_pirate_order_status_id'),
                 sprintf(
-                    'Payment Address:  '.$this->session->data['payment_pirate'].'  <br>Price Paid:       '.$tot.'));
+                    'Payment Address:  '.$this->session->data['payment_pirate'].'   <br>'.$txid.'<br>Price Paid:       '.$tot.''));
 
-                )
-            );
+
 $json['redirect'] = $this->url->link('checkout/success');
 
         }
