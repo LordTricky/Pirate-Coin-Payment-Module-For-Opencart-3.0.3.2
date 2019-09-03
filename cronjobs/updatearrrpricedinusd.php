@@ -1,5 +1,5 @@
 <?php
-$url='https://bitpay.com/api/rates';
+$url='https://bitpay.com/rates/usd';
 $json=json_decode( file_get_contents( $url ) );
 $usd=$btc=0;
 
